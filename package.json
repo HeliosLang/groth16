@@ -1,0 +1,50 @@
+{
+  "name": "@helios-lang/groth16",
+  "version": "0.1.0",
+  "description": "Standalone proof engine for Helios circuit artifacts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./node": {
+      "types": "./dist/node/index.d.ts",
+      "import": "./dist/node/index.js",
+      "default": "./dist/node/index.js"
+    },
+    "./web": {
+      "types": "./dist/web/index.d.ts",
+      "import": "./dist/web/index.js",
+      "default": "./dist/web/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "pnpm run build:ts && pnpm run build:native && pnpm run build:wasm",
+    "build:ts": "tsc -p tsconfig.build.json",
+    "build:native": "cargo build --release -p helios_groth16_node && node ./scripts/copy-native.mjs",
+    "build:wasm": "node ./scripts/build-wasm.mjs",
+    "test": "pnpm run test:types && node --test",
+    "test:types": "tsc --noEmit"
+  },
+  "keywords": [
+    "helios",
+    "proofs",
+    "groth16",
+    "bls12-381"
+  ],
+  "license": "BSD-3-Clause",
+  "packageManager": "pnpm@10.20.0",
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "rootDir": "src",
+    "declarationMap": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
+    "target": "esnext",
+    "lib": ["dom", "esnext"],
+    "exactOptionalPropertyTypes": true,
+    "moduleDetection": "force",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "allowJs": false,
+    "checkJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true
+  },
+  "exclude": ["dist", "node_modules", "**/*.d.ts"],
+  "include": ["src/**/*.ts"]
+}
